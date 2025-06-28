@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backgroundPatternSelect = document.getElementById('background-pattern');
     const roundedBtn = document.getElementById('rounded-btn');
     const sharpBtn = document.getElementById('sharp-btn');
+    const resetBtn = document.getElementById('reset-btn');
     const headlineTexts = document.querySelectorAll('.headline-text');
     const fontNames = document.querySelectorAll('.font-name');
     const fontPreviews = document.querySelectorAll('.font-preview');
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     backgroundPatternSelect.addEventListener('change', updateBackgroundPattern);
     roundedBtn.addEventListener('click', () => setCornerStyle('rounded'));
     sharpBtn.addEventListener('click', () => setCornerStyle('sharp'));
+    resetBtn.addEventListener('click', resetToDefaults);
 
     // 見出しテキストを更新する関数
     function updateHeadlineText() {
@@ -331,6 +333,35 @@ document.addEventListener('DOMContentLoaded', function() {
     backgroundPatternSelect.addEventListener('change', saveSettings);
     roundedBtn.addEventListener('click', saveSettings);
     sharpBtn.addEventListener('click', saveSettings);
+
+    // デフォルト設定に戻す関数
+    function resetToDefaults() {
+        // デフォルト値を設定
+        headlineInput.value = '甲神静ブロック';
+        fontSizeSlider.value = 24;
+        letterSpacingSlider.value = 0;
+        lineHeightSlider.value = 1.3;
+        showFontNamesCheckbox.checked = true;
+        backgroundPatternSelect.value = 'none';
+        
+        // ボタンの状態をデフォルトに
+        setWritingMode('horizontal');
+        setCornerStyle('sharp');
+        
+        // UIを更新
+        updateHeadlineText();
+        updateFontSize();
+        updateLetterSpacing();
+        updateLineHeight();
+        updateFontNameVisibility();
+        updateBackgroundPattern();
+        
+        // ローカルストレージをクリア
+        localStorage.removeItem('headlineComparerSettings');
+        
+        // 確認メッセージ（オプション）
+        console.log('設定をデフォルトに戻しました');
+    }
 
     // ページ読み込み時に設定を復元
     loadSettings();

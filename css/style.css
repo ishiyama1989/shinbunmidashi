@@ -268,6 +268,33 @@ main {
     color: #2c3e50;
 }
 
+/* リセットボタン */
+.reset-control {
+    flex: 0 0 auto;
+    min-width: 150px;
+    margin-top: 1rem;
+}
+
+.reset-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e74c3c;
+    border-radius: 8px;
+    background: white;
+    color: #e74c3c;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: #e74c3c;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+}
+
 /* プレビューセクション */
 .preview-section {
     display: grid;
