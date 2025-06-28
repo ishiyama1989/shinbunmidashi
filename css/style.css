@@ -1,0 +1,964 @@
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* ヘッダー */
+header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* 入力セクション */
+.input-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+#headline-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+    font-family: 'Noto Sans JP', sans-serif;
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+}
+
+#headline-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.control-group {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.font-size-control,
+.letter-spacing-control,
+.line-height-control {
+    flex: 1;
+    min-width: 200px;
+}
+
+.font-size-control label,
+.letter-spacing-control label,
+.line-height-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+#font-size,
+#letter-spacing,
+#line-height {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+#font-size::-webkit-slider-thumb,
+#letter-spacing::-webkit-slider-thumb,
+#line-height::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3498db;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#font-size::-moz-range-thumb,
+#letter-spacing::-moz-range-thumb,
+#line-height::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3498db;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 縦横書き選択ボタン */
+.writing-mode-control {
+    flex: 0 0 auto;
+    min-width: 150px;
+}
+
+.writing-mode-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.writing-mode-buttons {
+    display: flex;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.writing-mode-btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    background: white;
+    color: #666;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.writing-mode-btn:hover {
+    background: #f8f9fa;
+}
+
+.writing-mode-btn.active {
+    background: #3498db;
+    color: white;
+}
+
+.writing-mode-btn:first-child {
+    border-right: 1px solid #ddd;
+}
+
+/* 地紋パターン選択 */
+.background-pattern-control {
+    flex: 0 0 auto;
+    min-width: 180px;
+}
+
+.background-pattern-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+#background-pattern {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    color: #666;
+    font-weight: 600;
+    font-family: 'Noto Sans JP', sans-serif;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+#background-pattern:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* 角の形状選択 */
+.corner-style-control {
+    flex: 0 0 auto;
+    min-width: 120px;
+}
+
+.corner-style-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.corner-style-buttons {
+    display: flex;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.corner-style-btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    background: white;
+    color: #666;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.corner-style-btn:hover {
+    background: #f8f9fa;
+}
+
+.corner-style-btn.active {
+    background: #3498db;
+    color: white;
+}
+
+#sharp-btn {
+    border-right: 1px solid #ddd;
+}
+
+.display-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* プレビューセクション */
+.preview-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.font-preview {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid #ecf0f1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.font-preview:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.font-name {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.headline-text {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #2c3e50;
+    word-break: break-word;
+    text-align: center;
+    padding: 0.75rem 0;
+    border: 1px dashed #ecf0f1;
+    border-radius: 0;
+    background: #fafafa;
+    white-space: pre-line;
+    transition: border-radius 0.3s ease;
+}
+
+/* 角の形状スタイル */
+.headline-text.sharp-corners {
+    border-radius: 0;
+}
+
+.headline-text.rounded-corners {
+    border-radius: 12px;
+}
+
+.font-preview.sharp-corners {
+    border-radius: 0;
+}
+
+.font-preview.rounded-corners {
+    border-radius: 12px;
+}
+
+/* フォントファミリーの設定 */
+.font-preview[data-font="Noto Serif JP"] .headline-text {
+    font-family: 'Noto Serif JP', serif;
+}
+
+.font-preview[data-font="Noto Sans JP"] .headline-text {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.font-preview[data-font="Shippori Mincho"] .headline-text {
+    font-family: 'Shippori Mincho', serif;
+}
+
+.font-preview[data-font="Sawarabi Mincho"] .headline-text {
+    font-family: 'Sawarabi Mincho', serif;
+}
+
+.font-preview[data-font="M PLUS 1p"] .headline-text {
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+.font-preview[data-font="Kosugi Maru"] .headline-text {
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+.font-preview[data-font="Dela Gothic One"] .headline-text {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-weight: 400;
+}
+
+.font-preview[data-font="Zen Kurenaido"] .headline-text {
+    font-family: 'Zen Kurenaido', sans-serif;
+}
+
+.font-preview[data-font="Yuji Syuku"] .headline-text {
+    font-family: 'Yuji Syuku', serif;
+}
+
+.font-preview[data-font="Zen Antique"] .headline-text {
+    font-family: 'Zen Antique', serif;
+}
+
+.font-preview[data-font="Kaisei Decol"] .headline-text {
+    font-family: 'Kaisei Decol', serif;
+}
+
+.font-preview[data-font="Rampart One"] .headline-text {
+    font-family: 'Rampart One', sans-serif;
+    font-weight: 400;
+}
+
+.font-preview[data-font="Stick"] .headline-text {
+    font-family: 'Stick', sans-serif;
+    font-weight: 400;
+}
+
+.font-preview[data-font="Kiwi Maru"] .headline-text {
+    font-family: 'Kiwi Maru', sans-serif;
+}
+
+.font-preview[data-font="Train One"] .headline-text {
+    font-family: 'Train One', sans-serif;
+    font-weight: 400;
+}
+
+.font-preview[data-font="Reggae One"] .headline-text {
+    font-family: 'Reggae One', sans-serif;
+    font-weight: 400;
+}
+
+/* 使い方セクション */
+.usage-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.usage-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.usage-section ol {
+    padding-left: 1.5rem;
+}
+
+.usage-section li {
+    margin-bottom: 0.8rem;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+    border-top: 1px solid #ecf0f1;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
+    
+    .preview-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .font-size-control {
+        min-width: auto;
+    }
+    
+    .headline-text {
+        font-size: 36px;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .input-section,
+    .usage-section {
+        padding: 1.5rem;
+    }
+    
+    .font-preview {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .headline-text {
+        font-size: 28px;
+    }
+    
+    .preview-section {
+        gap: 1rem;
+    }
+    
+    .input-section,
+    .usage-section,
+    .font-preview {
+        padding: 1rem;
+    }
+}
+
+/* アニメーション */
+.font-preview {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* フォント名の表示/非表示 */
+.font-name.hidden {
+    display: none;
+}
+
+/* 縦書きスタイル */
+.font-preview.vertical .headline-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    height: 300px;
+    width: auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 140px;
+    white-space: normal;
+}
+
+.font-preview.vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 380px;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 1200px) {
+    .preview-section {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .preview-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .font-preview.vertical .headline-text {
+        height: 240px;
+        font-size: 20px !important;
+        max-width: 110px;
+    }
+    
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .writing-mode-control,
+    .background-pattern-control {
+        min-width: auto;
+    }
+    
+    .headline-text {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .font-preview.vertical .headline-text {
+        height: 200px;
+        font-size: 18px !important;
+        max-width: 90px;
+    }
+    
+    .headline-text {
+        font-size: 18px !important;
+    }
+    
+    .font-preview {
+        padding: 1rem;
+    }
+}
+
+/* 地紋パターン定義 */
+.headline-text.pattern-dots {
+    background-image: radial-gradient(circle, rgba(0,0,0,0.18) 1px, transparent 1px);
+    background-size: 8px 8px;
+}
+
+.headline-text.pattern-lines {
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.15) 3px,
+        rgba(0,0,0,0.15) 4px
+    );
+}
+
+.headline-text.pattern-grid {
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.12) 1px, transparent 1px);
+    background-size: 12px 12px;
+}
+
+.headline-text.pattern-newspaper {
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0,0,0,0.08) 2px,
+            rgba(0,0,0,0.08) 3px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 15px,
+            rgba(0,0,0,0.12) 15px,
+            rgba(0,0,0,0.12) 16px
+        );
+}
+
+.headline-text.pattern-wave {
+    background-image: 
+        radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.1) 21%, rgba(0,0,0,0.1) 25%, transparent 26%);
+    background-size: 20px 20px;
+}
+
+.headline-text.pattern-diagonal {
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 6px,
+        rgba(0,0,0,0.12) 6px,
+        rgba(0,0,0,0.12) 8px
+    );
+}
+
+.headline-text.pattern-cross {
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 8px,
+            rgba(0,0,0,0.1) 8px,
+            rgba(0,0,0,0.1) 10px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 8px,
+            rgba(0,0,0,0.1) 8px,
+            rgba(0,0,0,0.1) 10px
+        );
+}
+
+.headline-text.pattern-hexagon {
+    background-image: 
+        radial-gradient(circle at 25% 25%, transparent 20%, rgba(0,0,0,0.08) 21%, rgba(0,0,0,0.08) 30%, transparent 31%),
+        radial-gradient(circle at 75% 75%, transparent 20%, rgba(0,0,0,0.08) 21%, rgba(0,0,0,0.08) 30%, transparent 31%);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+}
+
+.headline-text.pattern-brick {
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,0.1) 0px,
+            rgba(0,0,0,0.1) 1px,
+            transparent 1px,
+            transparent 10px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.1) 0px,
+            rgba(0,0,0,0.1) 1px,
+            transparent 1px,
+            transparent 20px
+        );
+    background-position: 0 0, 10px 5px;
+}
+
+.headline-text.pattern-diamond {
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 5px,
+            rgba(0,0,0,0.1) 5px,
+            rgba(0,0,0,0.1) 6px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 5px,
+            rgba(0,0,0,0.1) 5px,
+            rgba(0,0,0,0.1) 6px
+        );
+}
+
+.headline-text.pattern-zigzag {
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 4px,
+            rgba(0,0,0,0.12) 4px,
+            rgba(0,0,0,0.12) 8px,
+            transparent 8px,
+            transparent 12px,
+            rgba(0,0,0,0.12) 12px,
+            rgba(0,0,0,0.12) 16px
+        );
+}
+
+.headline-text.pattern-vintage {
+    background-image: 
+        radial-gradient(circle at 0% 50%, rgba(0,0,0,0.05) 3px, transparent 4px),
+        radial-gradient(circle at 50% 100%, rgba(0,0,0,0.05) 3px, transparent 4px),
+        radial-gradient(circle at 100% 50%, rgba(0,0,0,0.05) 3px, transparent 4px),
+        radial-gradient(circle at 50% 0%, rgba(0,0,0,0.05) 3px, transparent 4px),
+        linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px);
+    background-size: 20px 20px, 20px 20px, 20px 20px, 20px 20px, 10px 10px, 10px 10px;
+}
+
+.headline-text.pattern-bamboo {
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 8px,
+            rgba(0,0,0,0.08) 8px,
+            rgba(0,0,0,0.08) 10px,
+            transparent 10px,
+            transparent 18px,
+            rgba(0,0,0,0.12) 18px,
+            rgba(0,0,0,0.12) 20px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 25px,
+            rgba(0,0,0,0.15) 25px,
+            rgba(0,0,0,0.15) 27px
+        );
+}
+
+.headline-text.pattern-checkerboard {
+    background-image: 
+        repeating-conic-gradient(rgba(0,0,0,0.1) 0deg 90deg, transparent 90deg 180deg, rgba(0,0,0,0.1) 180deg 270deg, transparent 270deg 360deg);
+    background-size: 12px 12px;
+}
+
+.headline-text.pattern-triangles {
+    background-image: 
+        repeating-linear-gradient(
+            60deg,
+            transparent,
+            transparent 8px,
+            rgba(0,0,0,0.1) 8px,
+            rgba(0,0,0,0.1) 10px
+        ),
+        repeating-linear-gradient(
+            -60deg,
+            transparent,
+            transparent 8px,
+            rgba(0,0,0,0.1) 8px,
+            rgba(0,0,0,0.1) 10px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 12px,
+            rgba(0,0,0,0.08) 12px,
+            rgba(0,0,0,0.08) 14px
+        );
+}
+
+.headline-text.pattern-circles {
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(0,0,0,0.1) 2px, transparent 3px),
+        radial-gradient(circle at 75% 75%, rgba(0,0,0,0.1) 2px, transparent 3px),
+        radial-gradient(circle at 25% 75%, rgba(0,0,0,0.08) 1.5px, transparent 2.5px),
+        radial-gradient(circle at 75% 25%, rgba(0,0,0,0.08) 1.5px, transparent 2.5px);
+    background-size: 16px 16px, 16px 16px, 12px 12px, 12px 12px;
+    background-position: 0 0, 8px 8px, 6px 6px, 14px 14px;
+}
+
+.headline-text.pattern-scales {
+    background-image: 
+        radial-gradient(ellipse at top, rgba(0,0,0,0.1) 40%, transparent 41%),
+        radial-gradient(ellipse at bottom, rgba(0,0,0,0.08) 40%, transparent 41%);
+    background-size: 20px 12px, 20px 12px;
+    background-position: 0 0, 10px 6px;
+}
+
+.headline-text.pattern-flower {
+    background-image: 
+        radial-gradient(circle at 50% 25%, rgba(0,0,0,0.08) 2px, transparent 3px),
+        radial-gradient(circle at 25% 50%, rgba(0,0,0,0.08) 2px, transparent 3px),
+        radial-gradient(circle at 75% 50%, rgba(0,0,0,0.08) 2px, transparent 3px),
+        radial-gradient(circle at 50% 75%, rgba(0,0,0,0.08) 2px, transparent 3px),
+        radial-gradient(circle at 50% 50%, rgba(0,0,0,0.12) 1px, transparent 2px);
+    background-size: 24px 24px;
+}
+
+.headline-text.pattern-mesh {
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,0.08) 0px,
+            rgba(0,0,0,0.08) 1px,
+            transparent 1px,
+            transparent 6px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.08) 0px,
+            rgba(0,0,0,0.08) 1px,
+            transparent 1px,
+            transparent 6px
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 4px,
+            rgba(0,0,0,0.04) 4px,
+            rgba(0,0,0,0.04) 5px
+        );
+}
+
+.headline-text.pattern-weave {
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,0.1) 0px,
+            rgba(0,0,0,0.1) 2px,
+            transparent 2px,
+            transparent 4px,
+            rgba(0,0,0,0.06) 4px,
+            rgba(0,0,0,0.06) 6px,
+            transparent 6px,
+            transparent 8px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.08) 0px,
+            rgba(0,0,0,0.08) 2px,
+            transparent 2px,
+            transparent 4px,
+            rgba(0,0,0,0.12) 4px,
+            rgba(0,0,0,0.12) 6px,
+            transparent 6px,
+            transparent 8px
+        );
+}
+
+.headline-text.pattern-woodgrain {
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.06),
+            rgba(0,0,0,0.06) 2px,
+            rgba(0,0,0,0.03) 2px,
+            rgba(0,0,0,0.03) 4px,
+            rgba(0,0,0,0.08) 4px,
+            rgba(0,0,0,0.08) 6px,
+            rgba(0,0,0,0.04) 6px,
+            rgba(0,0,0,0.04) 12px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 20px,
+            rgba(0,0,0,0.05) 20px,
+            rgba(0,0,0,0.05) 21px
+        );
+}
+
+.headline-text.pattern-marble {
+    background-image: 
+        radial-gradient(ellipse at 20% 30%, rgba(0,0,0,0.04) 30%, transparent 31%),
+        radial-gradient(ellipse at 80% 70%, rgba(0,0,0,0.06) 25%, transparent 26%),
+        radial-gradient(ellipse at 60% 20%, rgba(0,0,0,0.03) 35%, transparent 36%),
+        repeating-linear-gradient(
+            20deg,
+            transparent,
+            transparent 8px,
+            rgba(0,0,0,0.02) 8px,
+            rgba(0,0,0,0.02) 10px
+        ),
+        repeating-linear-gradient(
+            -30deg,
+            transparent,
+            transparent 12px,
+            rgba(0,0,0,0.03) 12px,
+            rgba(0,0,0,0.03) 14px
+        );
+    background-size: 40px 30px, 35px 40px, 45px 25px, 20px 20px, 25px 25px;
+}
+
+.headline-text.pattern-fabric {
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,0.08) 0px,
+            rgba(0,0,0,0.08) 1px,
+            transparent 1px,
+            transparent 3px,
+            rgba(0,0,0,0.04) 3px,
+            rgba(0,0,0,0.04) 4px,
+            transparent 4px,
+            transparent 6px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.1) 0px,
+            rgba(0,0,0,0.1) 1px,
+            transparent 1px,
+            transparent 3px,
+            rgba(0,0,0,0.06) 3px,
+            rgba(0,0,0,0.06) 4px,
+            transparent 4px,
+            transparent 6px
+        );
+    background-position: 0 0, 1px 1px;
+}
+
+.headline-text.pattern-chain {
+    background-image: 
+        radial-gradient(circle at 25% 50%, transparent 30%, rgba(0,0,0,0.1) 31%, rgba(0,0,0,0.1) 35%, transparent 36%),
+        radial-gradient(circle at 75% 50%, transparent 30%, rgba(0,0,0,0.1) 31%, rgba(0,0,0,0.1) 35%, transparent 36%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 8px,
+            rgba(0,0,0,0.06) 8px,
+            rgba(0,0,0,0.06) 10px,
+            transparent 10px,
+            transparent 18px
+        );
+    background-size: 20px 18px, 20px 18px, 20px 18px;
+    background-position: 0 0, 0 9px, 0 0;
+}
+
+.headline-text.pattern-stars {
+    background-image: 
+        radial-gradient(circle at 50% 20%, rgba(0,0,0,0.08) 1px, transparent 2px),
+        radial-gradient(circle at 20% 80%, rgba(0,0,0,0.08) 1px, transparent 2px),
+        radial-gradient(circle at 80% 60%, rgba(0,0,0,0.08) 1px, transparent 2px),
+        radial-gradient(circle at 30% 40%, rgba(0,0,0,0.06) 0.5px, transparent 1.5px),
+        radial-gradient(circle at 70% 30%, rgba(0,0,0,0.06) 0.5px, transparent 1.5px),
+        radial-gradient(circle at 60% 90%, rgba(0,0,0,0.06) 0.5px, transparent 1.5px);
+    background-size: 24px 24px, 28px 28px, 32px 32px, 16px 16px, 20px 20px, 18px 18px;
+    background-position: 0 0, 12px 12px, 6px 6px, 8px 8px, 4px 4px, 16px 16px;
+}

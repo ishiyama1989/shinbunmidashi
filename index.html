@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>見出し比較ツール</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Zen+Antique&family=Kaisei+Decol:wght@400;700&family=Shippori+Mincho:wght@400;600;800&family=M+PLUS+1p:wght@400;700;900&family=Yuji+Syuku&family=Zen+Kurenaido&family=Kosugi+Maru&family=Sawarabi+Mincho&family=Dela+Gothic+One&family=Rampart+One&family=Stick&family=Hachi+Maru+Pop&family=Kiwi+Maru:wght@300;400;500&family=Train+One&family=Reggae+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>見出し比較ツール</h1>
+        <p>見出しのタイトルを入力して、様々なフォントで比較できます</p>
+    </header>
+
+    <main>
+        <section class="input-section">
+            <div class="input-group">
+                <label for="headline-input">見出しタイトル</label>
+                <textarea id="headline-input" placeholder="見出しのタイトルを入力してください&#10;複数行の見出しも可能です" rows="3">甲神静ブロック</textarea>
+            </div>
+            
+            <div class="control-group">
+                <div class="font-size-control">
+                    <label for="font-size">フォントサイズ: <span id="font-size-value">24px</span></label>
+                    <input type="range" id="font-size" min="8" max="72" value="24">
+                </div>
+                
+                <div class="letter-spacing-control">
+                    <label for="letter-spacing">文字間隔: <span id="letter-spacing-value">標準</span></label>
+                    <input type="range" id="letter-spacing" min="-5" max="10" value="0" step="0.5">
+                </div>
+                
+                <div class="line-height-control">
+                    <label for="line-height">行間隔: <span id="line-height-value">1.3</span></label>
+                    <input type="range" id="line-height" min="0.8" max="2.5" value="1.3" step="0.1">
+                </div>
+                
+                <div class="writing-mode-control">
+                    <label>文字方向</label>
+                    <div class="writing-mode-buttons">
+                        <button type="button" id="horizontal-btn" class="writing-mode-btn active">横書き</button>
+                        <button type="button" id="vertical-btn" class="writing-mode-btn">縦書き</button>
+                    </div>
+                </div>
+                
+                <div class="background-pattern-control">
+                    <label for="background-pattern">地紋パターン</label>
+                    <select id="background-pattern">
+                        <option value="none">なし</option>
+                        <option value="dots">ドット</option>
+                        <option value="lines">ストライプ</option>
+                        <option value="grid">格子</option>
+                        <option value="newspaper">新聞風</option>
+                        <option value="wave">波紋</option>
+                        <option value="diagonal">斜線</option>
+                        <option value="cross">クロス</option>
+                        <option value="hexagon">ハニカム</option>
+                        <option value="brick">レンガ</option>
+                        <option value="diamond">ダイヤ</option>
+                        <option value="zigzag">ジグザグ</option>
+                        <option value="vintage">ビンテージ</option>
+                        <option value="bamboo">竹模様</option>
+                        <option value="checkerboard">チェック</option>
+                        <option value="triangles">三角形</option>
+                        <option value="circles">円形</option>
+                        <option value="scales">鱗模様</option>
+                        <option value="flower">花模様</option>
+                        <option value="mesh">メッシュ</option>
+                        <option value="weave">織物</option>
+                        <option value="woodgrain">木目</option>
+                        <option value="marble">大理石</option>
+                        <option value="fabric">布地</option>
+                        <option value="chain">鎖模様</option>
+                        <option value="stars">星模様</option>
+                    </select>
+                </div>
+                
+                <div class="corner-style-control">
+                    <label>角の形状</label>
+                    <div class="corner-style-buttons">
+                        <button type="button" id="sharp-btn" class="corner-style-btn active">尖角</button>
+                        <button type="button" id="rounded-btn" class="corner-style-btn">丸角</button>
+                    </div>
+                </div>
+                
+                <div class="display-options">
+                    <label>
+                        <input type="checkbox" id="show-font-names" checked>
+                        フォント名を表示
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview-section">
+            <div class="font-preview" data-font="Noto Serif JP">
+                <div class="font-name">Noto Serif JP (標準明朝体)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Noto Sans JP">
+                <div class="font-name">Noto Sans JP (標準ゴシック体)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Shippori Mincho">
+                <div class="font-name">Shippori Mincho (伝統的明朝体)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Sawarabi Mincho">
+                <div class="font-name">Sawarabi Mincho (優雅な明朝体)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="M PLUS 1p">
+                <div class="font-name">M PLUS 1p (モダンゴシック)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Kosugi Maru">
+                <div class="font-name">Kosugi Maru (丸ゴシック)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Dela Gothic One">
+                <div class="font-name">Dela Gothic One (極太ゴシック)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Zen Kurenaido">
+                <div class="font-name">Zen Kurenaido (モダン書体)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Yuji Syuku">
+                <div class="font-name">Yuji Syuku (手書き風)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Zen Antique">
+                <div class="font-name">Zen Antique (アンティーク風)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Kaisei Decol">
+                <div class="font-name">Kaisei Decol (装飾的)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Rampart One">
+                <div class="font-name">Rampart One (ポップ体)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Stick">
+                <div class="font-name">Stick (極細ゴシック)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Kiwi Maru">
+                <div class="font-name">Kiwi Maru (可愛い丸文字)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Train One">
+                <div class="font-name">Train One (インパクト体)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+            
+            <div class="font-preview" data-font="Reggae One">
+                <div class="font-name">Reggae One (レゲエスタイル)</div>
+                <div class="headline-text">甲神静ブロック</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 見出し比較ツール</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
