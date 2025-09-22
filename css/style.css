@@ -186,6 +186,66 @@ main {
 .background-pattern-control {
     flex: 0 0 auto;
     min-width: 180px;
+    position: relative;
+}
+
+.pattern-select-wrapper {
+    position: relative;
+}
+
+.pattern-preview {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    height: 80px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    display: none;
+    margin-top: 5px;
+}
+
+.pattern-preview-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    border-radius: 6px;
+}
+
+.pattern-preview.show {
+    display: block;
+    animation: fadeInUp 0.2s ease;
+}
+
+/* プレビュー用の地紋パターン */
+.pattern-preview-content.pattern-dots {
+    background-image: radial-gradient(circle, rgba(0,0,0,0.18) 1px, transparent 1px);
+    background-size: 8px 8px;
+}
+
+.pattern-preview-content.pattern-lines {
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0.15) 4px);
+}
+
+.pattern-preview-content.pattern-grid {
+    background-image: linear-gradient(rgba(0,0,0,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.12) 1px, transparent 1px);
+    background-size: 12px 12px;
+}
+
+.pattern-preview-content.pattern-newspaper {
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 3px), repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(0,0,0,0.12) 15px, rgba(0,0,0,0.12) 16px);
+}
+
+.pattern-preview-content.pattern-diagonal {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(0,0,0,0.12) 6px, rgba(0,0,0,0.12) 8px);
 }
 
 .background-pattern-control label {
@@ -376,7 +436,8 @@ main {
 }
 
 .font-preview[data-font="M PLUS 1p"] .headline-text {
-    font-family: 'M PLUS 1p', sans-serif;
+    font-family: 'M PLUS 1p', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+    font-weight: 400;
 }
 
 .font-preview[data-font="Kosugi Maru"] .headline-text {
@@ -414,6 +475,11 @@ main {
     font-weight: 400;
 }
 
+.font-preview[data-font="Hachi Maru Pop"] .headline-text {
+    font-family: 'Hachi Maru Pop', sans-serif;
+    font-weight: 400;
+}
+
 .font-preview[data-font="Kiwi Maru"] .headline-text {
     font-family: 'Kiwi Maru', sans-serif;
 }
@@ -425,6 +491,11 @@ main {
 
 .font-preview[data-font="Reggae One"] .headline-text {
     font-family: 'Reggae One', sans-serif;
+    font-weight: 400;
+}
+
+.font-preview[data-font="BIZ UDPGothic"] .headline-text {
+    font-family: 'BIZ UDPGothic', sans-serif;
     font-weight: 400;
 }
 
@@ -453,12 +524,83 @@ main {
     font-size: 1.1rem;
 }
 
+/* 広告エリア */
+.ad-container {
+    margin: 2rem auto;
+    max-width: 728px;
+    text-align: center;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.ad-container .adsbygoogle {
+    display: block;
+    margin: 0 auto;
+}
+
+/* サイドバー広告 */
+.sidebar-ad {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: none; /* デフォルトは非表示 */
+}
+
+.left-sidebar {
+    left: 20px;
+}
+
+.right-sidebar {
+    right: 20px;
+}
+
+.sidebar-ad-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    width: 180px;
+    height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-ad .adsbygoogle {
+    width: 160px !important;
+    height: 600px !important;
+}
+
 /* フッター */
 footer {
     text-align: center;
     padding: 2rem;
     color: #7f8c8d;
     border-top: 1px solid #ecf0f1;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* デスクトップでサイドバー表示 */
+@media (min-width: 1400px) {
+    .sidebar-ad {
+        display: block;
+    }
+    
+    body {
+        padding: 0 200px; /* サイドバー分の余白 */
+    }
 }
 
 /* レスポンシブデザイン */

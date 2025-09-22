@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const headlineTexts = document.querySelectorAll('.headline-text');
     const fontNames = document.querySelectorAll('.font-name');
     const fontPreviews = document.querySelectorAll('.font-preview');
+    const patternPreview = document.getElementById('pattern-preview');
+    const patternPreviewContent = document.querySelector('.pattern-preview-content');
 
     // 初期化
     updateHeadlineText();
@@ -40,6 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
     roundedBtn.addEventListener('click', () => setCornerStyle('rounded'));
     sharpBtn.addEventListener('click', () => setCornerStyle('sharp'));
     resetBtn.addEventListener('click', resetToDefaults);
+    
+    // 地紋パターンのプレビュー機能
+    setupPatternPreview();
 
     // 見出しテキストを更新する関数
     function updateHeadlineText() {
@@ -361,6 +366,36 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 確認メッセージ（オプション）
         console.log('設定をデフォルトに戻しました');
+    }
+
+    // 地紋パターンプレビュー機能
+    function setupPatternPreview() {
+        const options = backgroundPatternSelect.querySelectorAll('option');
+        
+        options.forEach(option => {
+            option.addEventListener('mouseenter', function() {
+                showPatternPreview(this.value);
+            });
+            
+            option.addEventListener('mouseleave', function() {
+                hidePatternPreview();
+            });
+        });
+    }
+    
+    function showPatternPreview(patternValue) {
+        if (patternValue === 'none') {
+            patternPreviewContent.textContent = '地紋なし';
+            patternPreviewContent.className = 'pattern-preview-content';
+        } else {
+            patternPreviewContent.textContent = '地紋';
+            patternPreviewContent.className = 'pattern-preview-content pattern-' + patternValue;
+        }
+        patternPreview.classList.add('show');
+    }
+    
+    function hidePatternPreview() {
+        patternPreview.classList.remove('show');
     }
 
     // ページ読み込み時に設定を復元
